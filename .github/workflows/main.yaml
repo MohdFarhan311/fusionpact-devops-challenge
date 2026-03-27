@@ -75,10 +75,10 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            # pull latest code
+            rm -rf fusionpact-devops-challenge
+            git clone https://github.com/Saud215/fusionpact-devops-challenge.git
             cd fusionpact-devops-challenge
-
-            # Pull latest code
-            git pull origin main
 
             # Pull latest images
             docker pull ${{ secrets.DOCKER_USERNAME }}/fp-challenge-backend:latest

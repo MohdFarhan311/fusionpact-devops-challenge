@@ -1,0 +1,14 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  # Scrape backend metrics
+  - job_name: 'backend'
+    static_configs:
+      - targets: ['fusionpact-devops-challenge-backend-1:8000']
+
+  # Node exporter metrics (if you add node_exporter container later)
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['node_exporter:9100']  # container name in same network]

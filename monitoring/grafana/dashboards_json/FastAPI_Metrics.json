@@ -1,0 +1,33 @@
+{
+  "id": null,
+  "uid": "fastapi-metrics",
+  "title": "FastAPI Metrics",
+  "tags": ["fastapi"],
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Request Rate",
+      "gridPos": { "x": 0, "y": 0, "w": 24, "h": 8 },
+      "targets": [
+        {
+          "expr": "http_requests_total",
+          "legendFormat": "{{method}}"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Latency",
+      "gridPos": { "x": 0, "y": 8, "w": 24, "h": 8 },
+      "targets": [
+        {
+          "expr": "http_request_duration_seconds_sum / http_request_duration_seconds_count"
+        }
+      ]
+    }
+  ]
+}

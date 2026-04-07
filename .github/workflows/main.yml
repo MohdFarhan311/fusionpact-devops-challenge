@@ -54,12 +54,14 @@ jobs:
       # 4. Build & push Docker images
       # -----------------------------
       - name: Build & Push Backend Image
+        working-directory: ./backend
         run: |
-          docker buildx build --push -t ${{ env.DOCKER_USERNAME }}/fusion-backend:latest ./backend
+          docker buildx build --push -t ${{ env.DOCKER_USERNAME }}/fusion-backend:latest .
 
       - name: Build & Push Frontend Image
+        working-directory: ./frontend
         run: |
-          docker buildx build --push -t ${{ env.DOCKER_USERNAME }}/fusion-frontend:latest ./frontend
+          docker buildx build --push -t ${{ env.DOCKER_USERNAME }}/fusion-frontend:latest .
 
       # -----------------------------
       # 5. Deploy to EC2

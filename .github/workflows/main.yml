@@ -21,6 +21,7 @@ jobs:
 
       - name: Dummy test step
         run: echo "No tests provided for now, build and tests successful!"
+        
 
   # -----------------------------
   # 2. Build & Push Docker Images

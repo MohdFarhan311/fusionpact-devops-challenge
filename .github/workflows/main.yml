@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Dummy test step
-        run: echo "No tests provided for now, build and tests successf!"
+        run: echo "No tests provided for now, build and tests successfUL!"
         
 
   # -----------------------------

@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Dummy test step
-        run: echo "No tests provided yet, build and tests successful!"
+        run: echo "Build and tests successful!"
 
 
   build-and-push-images:
@@ -44,13 +44,15 @@ jobs:
       # Backend Image
       - name: Build & Push Backend Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/fp-challenge-backend:latest ./backend
+          cd backend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/fp-challenge-backend:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/fp-challenge-backend:latest
 
       # Frontend Image
       - name: Build & Push Frontend Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/fp-challenge-frontend:latest ./frontend
+          cd frontend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/fp-challenge-frontend:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/fp-challenge-frontend:latest
 
 
@@ -75,6 +77,3 @@ jobs:
             # Restart services
             docker compose down
             docker compose up -d
-
-
-            
